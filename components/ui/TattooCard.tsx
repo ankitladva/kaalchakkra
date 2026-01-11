@@ -49,12 +49,12 @@ export default function TattooCard({
 
           {/* Content */}
           <div className="absolute inset-0 p-6 flex flex-col justify-end">
-            <div className="transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
+            {/* <div className="transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
               <p className="text-white/60 text-sm font-medium uppercase tracking-wider mb-2">
                 {style}
               </p>
               <h3 className="text-xl font-bold text-white">{name}</h3>
-            </div>
+            </div> */}
 
             {/* Arrow indicator */}
             <div className="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/30 flex items-center justify-center opacity-0 transform translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">

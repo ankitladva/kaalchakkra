@@ -43,7 +43,7 @@ export default function HealedWork() {
         </div>
 
         {/* Note */}
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -51,7 +51,7 @@ export default function HealedWork() {
           className="text-center text-foreground/40 text-sm mt-12"
         >
           * All healed photos are taken 2-6 months after the tattoo session
-        </motion.p>
+        </motion.p> */}
       </div>
     </section>
   );

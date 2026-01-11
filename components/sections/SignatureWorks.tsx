@@ -96,17 +96,17 @@ export default function SignatureWorks() {
 
                   {/* Content */}
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                    <p className="text-foreground/50 text-sm uppercase tracking-wider mb-2">
+                    {/* <p className="text-foreground/50 text-sm uppercase tracking-wider mb-2">
                       {tattoo.style}
                     </p>
                     <h3 className="text-2xl font-bold text-foreground mb-4">
                       {tattoo.name}
-                    </h3>
-                    <div className="flex items-center gap-2 text-foreground/70 group-hover:text-foreground transition-colors">
+                    </h3> */}
+                    <div className="flex items-center gap-2 text-white transition-colors">
                       <span className="text-sm font-medium">View Story</span>
                       <ArrowUpRight
                         size={16}
-                        className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                        className="text-white transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
                       />
                     </div>
                   </div>

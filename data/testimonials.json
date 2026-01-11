@@ -1,0 +1,130 @@
+{
+  "testimonials": [
+    {
+      "id": "testimonial-1",
+      "name": "Vikas Chauhan",
+      "initials": "VC",
+      "image": null,
+      "location": null,
+      "quote": "I recently visited Kaal Chakra Tattoo Studio to get a chest tattoo. The design featured the text 'All Eyes On Me' at the center of my chest with detailed eagle wings on both sides. The finishing was sharp, clean, and perfectly balanced. Every line and detail was up to the mark and came out exactly as I had envisioned. The studio was professional and comfortable throughout. Highly recommend Kaal Chakra Tattoo Studio and Sumit Tank for quality work, precision, and true craftsmanship.",
+      "tattooType": "Chest Tattoo with Eagle Wings"
+    },
+    {
+      "id": "testimonial-2",
+      "name": "Subir Singh Rathore",
+      "initials": "SSR",
+      "image": null,
+      "location": null,
+      "quote": "I met Sumit a couple of years ago when I was looking for someone I could truly trust with my tattoos. He was extremely patient and helped me decide the perfect location, size, and font for my next big tattoo. The final result turned out exceptionally beautiful, and I fall in love with it more every day. I highly recommend Sumit and his studio to anyone looking for meaningful, well-designed tattoos.",
+      "tattooType": "Custom Text Tattoo"
+    },
+    {
+      "id": "testimonial-3",
+      "name": "Abhi Kotwal",
+      "initials": "AK",
+      "image": null,
+      "location": "Canada",
+      "quote": "I consulted Sumit while I was still in Canada with just a basic idea. I trusted his expertise and he created a design that exceeded my expectations. When I arrived, everything was already perfectly planned. The artwork was incredibly detailed and precise, far beyond what I imagined. Sumit truly understands his craft and brings visions to life.",
+      "tattooType": "Custom Tattoo"
+    },
+    {
+      "id": "testimonial-4",
+      "name": "Pankaj Ramesh Soni",
+      "initials": "PRS",
+      "image": null,
+      "location": null,
+      "quote": "Sumit is a master of realism tattoo art. His attention to detail and skill are incredible, and the design turned out even better than I imagined. He also made me feel very comfortable throughout the process. I can’t stop looking at the beautiful artwork.",
+      "tattooType": "Realism Tattoo"
+    },
+    {
+      "id": "testimonial-5",
+      "name": "Urvashi Panchal",
+      "initials": "UP",
+      "image": null,
+      "location": null,
+      "quote": "The studio was very professional and hygienic, which made me feel safe instantly. The tattoo turned out amazing with fine detailing that shows Sumit’s skill and passion. I’ve already received so many compliments. I highly recommend Kaal Chakkra Tattoo Studio.",
+      "tattooType": "Custom Tattoo"
+    },
+    {
+      "id": "testimonial-6",
+      "name": "Rohan Gada",
+      "initials": "RG",
+      "image": null,
+      "location": "Mumbai",
+      "quote": "Sumit is a true perfectionist who understands the soul of tattooing. He was honest, insightful, and helped bring my armband tattoo to life with stunning precision. The lines were crisp, the shading added depth, and the entire experience was smooth and comfortable. Highly recommended for anyone looking for meaningful and high-quality tattoo work.",
+      "tattooType": "Armband Tattoo"
+    },
+    {
+      "id": "testimonial-7",
+      "name": "Kanak Sharma",
+      "initials": "KS",
+      "image": null,
+      "location": null,
+      "quote": "Sumit approaches his art with calmness and incredible focus. His attention to detail is outstanding and he can create any tattoo effortlessly. I’ve visited many well-known studios, but none match the quality and value you get here. This place is absolutely worth it.",
+      "tattooType": "Custom Tattoo"
+    },
+    {
+      "id": "testimonial-8",
+      "name": "Shishir Khandelwal",
+      "initials": "SK",
+      "image": null,
+      "location": "Mumbai",
+      "quote": "Sumit is one of the best realism tattoo artists in Mumbai. He was deeply involved in the design process and created a stunning tiger-in-the-jungle tattoo for me. The studio was clean and the result was truly surreal and beautiful.",
+      "tattooType": "Realism Tiger Tattoo"
+    },
+    {
+      "id": "testimonial-9",
+      "name": "Sumit Parmar",
+      "initials": "SP",
+      "image": null,
+      "location": null,
+      "quote": "The artists here are super talented and professional. My tattoo artist was creative, attentive, and made the entire experience painless. The studio is clean and welcoming. I can’t wait to get my next tattoo here.",
+      "tattooType": "Custom Tattoo"
+    },
+    {
+      "id": "testimonial-10",
+      "name": "Khushbu Kutola",
+      "initials": "KK",
+      "image": null,
+      "location": null,
+      "quote": "Sumit patiently understood my idea and added his creative touch to turn it into a stunning tattoo with deep meaning. The studio was clean, calm, and artistically inspiring. The hygiene standards were excellent and the final tattoo was absolutely beautiful.",
+      "tattooType": "Meaningful Custom Tattoo"
+    },
+    {
+      "id": "testimonial-11",
+      "name": "Prisha Param",
+      "initials": "PP",
+      "image": null,
+      "location": null,
+      "quote": "Sumit designed my memorial tattoo beautifully with excellent finishing. The process was smooth and almost painless. I highly recommend Kaal Chakra Tattoo Studio for professional and artistic tattoo work.",
+      "tattooType": "Memorial Tattoo"
+    },
+    {
+      "id": "testimonial-12",
+      "name": "Vaishnavi Sanap",
+      "initials": "VS",
+      "image": null,
+      "location": null,
+      "quote": "I couldn’t be happier with how my tattoo turned out. The talent and care that went into it made the entire experience unforgettable.",
+      "tattooType": "Tattoo"
+    },
+    {
+      "id": "testimonial-13",
+      "name": "Deep Panchal",
+      "initials": "DP",
+      "image": null,
+      "location": null,
+      "quote": "Sumit was extremely professional and made sure I was comfortable throughout the entire session. The quality of the tattoo is outstanding. You don’t just get a tattoo here, you get a complete experience.",
+      "tattooType": "Tattoo"
+    },
+    {
+      "id": "testimonial-14",
+      "name": "Nikita Kadam",
+      "initials": "NK",
+      "image": null,
+      "location": null,
+      "quote": "I really appreciate the patience, creativity, and skill that went into my tattoo. It was a positive and memorable experience. I highly recommend Sumit Tank to anyone looking for a talented and dedicated tattoo artist.",
+      "tattooType": "Tattoo"
+    }
+  ]
+}

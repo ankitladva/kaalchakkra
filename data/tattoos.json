@@ -1,6 +1,90 @@
 {
   "tattoos": [
     {
+      "id": "the-warrior-king",
+      "slug": "the-warrior-king",
+      "name": "The Warrior King",
+      "style": "Realism / Cultural",
+      "image": "/images/tattoos/The Warrior King.jpg",
+      "featured": true,
+      "healed": false,
+      "description": "A commanding shoulder portrait of a Maratha warrior king crowned with an ornate turban and jewel, framed by dotwork halos and sacred geometry. Below, a dramatic scene of a warrior grappling a lion flows into the sleeve.",
+      "symbolism": "The warrior king embodies leadership, courage, and the spirit of Swarajya, while the tilak on his forehead marks divine devotion. The dotwork and mandala elements connect earthly valor to a higher cosmic order.",
+      "youtubeUrl": ""
+    },
+    {
+      "id": "the-lions-duel",
+      "slug": "the-lions-duel",
+      "name": "The Lion's Duel",
+      "style": "Realism / Cultural",
+      "image": "/images/tattoos/The Lions Duel.jpg",
+      "featured": true,
+      "healed": false,
+      "description": "The inner-arm continuation of a warrior sleeve, depicting a long-haired warrior locked in combat with a roaring lion, layered over bold flowing calligraphy and a mandala backdrop.",
+      "symbolism": "The duel with the lion represents the battle against one's greatest fears and adversities, while the calligraphy anchors the piece in cultural pride. Together they celebrate raw strength guided by heritage.",
+      "youtubeUrl": ""
+    },
+    {
+      "id": "the-norse-wolf",
+      "slug": "the-norse-wolf",
+      "name": "The Norse Wolf",
+      "style": "Realism / Nordic",
+      "image": "/images/tattoos/The Norse Wolf.jpg",
+      "featured": true,
+      "healed": false,
+      "description": "A striking forearm piece merging a hyper-realistic wolf's gaze with the Vegvisir rune compass carved in weathered stone, crowned by mountain peaks and grounded by the Valknut at the wrist.",
+      "symbolism": "The wolf represents loyalty, instinct, and the untamed spirit, the Vegvisir guides the wearer through life's storms, and the Valknut honors courage in the face of destiny. A complete Norse talisman of guidance and strength.",
+      "youtubeUrl": ""
+    },
+    {
+      "id": "the-nemean-crown",
+      "slug": "the-nemean-crown",
+      "name": "The Nemean Crown",
+      "style": "Greek Mythology / Realism",
+      "image": "/images/tattoos/The Nemean Crown.jpg",
+      "featured": true,
+      "healed": false,
+      "description": "A sculptural forearm piece of a Greek god-like figure wearing a snarling lion's pelt as a headdress, rendered in smooth black and grey with marble-statue depth and flowing beard detail.",
+      "symbolism": "Inspired by Heracles and the Nemean lion, the pelt crown symbolizes triumph over the impossible. Wearing the conquered beast represents transforming one's greatest trial into a source of power.",
+      "youtubeUrl": ""
+    },
+    {
+      "id": "trishul-and-damru",
+      "slug": "trishul-and-damru",
+      "name": "Trishul & Damru",
+      "style": "Hindu Mythology / Symbolic",
+      "image": "/images/tattoos/Trishul and Damru.jpg",
+      "featured": true,
+      "healed": false,
+      "description": "An elegant forearm composition of Lord Shiva's trident with a third eye at its center, a hooded cobra rising beneath it, and the damru drum wrapped at its base, all radiating soft beams of light.",
+      "symbolism": "The Trishul destroys ignorance across creation, preservation, and destruction; the cobra represents fearlessness and Kundalini energy; and the damru carries the primordial rhythm of the universe. A complete emblem of Mahadev's power.",
+      "youtubeUrl": ""
+    },
+    {
+      "id": "om-namah-shivaya",
+      "slug": "om-namah-shivaya",
+      "name": "Om Namah Shivaya",
+      "style": "Hindu Mythology / Realism",
+      "image": "/images/tattoos/Om Namah Shivaya.jpg",
+      "featured": true,
+      "healed": false,
+      "description": "A devotional forearm piece centered on the sacred Shiva Lingam draped with bael leaves and rudraksha beads, with the mantra 'Om Namah Shivaya' flowing across it in bold Devanagari calligraphy against a glowing full moon.",
+      "symbolism": "The Lingam represents the formless infinite nature of Lord Shiva, while the five-syllable mantra is a surrender to that consciousness. The moon signifies the stillness of the meditative mind.",
+      "youtubeUrl": ""
+    },
+    {
+      "id": "the-purest-bond",
+      "slug": "the-purest-bond",
+      "name": "The Purest Bond",
+      "style": "Portrait / Realism",
+      "image": "/images/tattoos/The Purest Bond.jpg",
+      "featured": true,
+      "healed": false,
+      "description": "A deeply personal black and grey portrait capturing a child's beaming smile alongside their fluffy companion, rendered with photorealistic softness in skin, hair, and fur textures.",
+      "symbolism": "This piece immortalizes the innocence of childhood and the unconditional love between a child and their pet, a memory carried on the skin forever.",
+      "youtubeUrl": ""
+    },
+    {
       "id": "lion-meditation",
       "slug": "lion-meditation",
       "name": "The Roar of Destiny",

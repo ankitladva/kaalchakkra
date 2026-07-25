@@ -130,8 +130,14 @@ export default function RealismMasterclass() {
       <div className="pt-16 md:pt-20 pb-12">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <motion.div {...fadeUp}>
-            <p className="text-foreground/50 text-sm uppercase tracking-[0.2em] mb-4">
-              Program 02 · 45 Days · For Practicing Artists
+            <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-foreground/50 text-sm uppercase tracking-[0.2em] mb-4">
+              <span>Program 02</span>
+              <span aria-hidden>·</span>
+              <span className="text-foreground font-extrabold text-3xl md:text-5xl tracking-normal">
+                45 Days
+              </span>
+              <span aria-hidden>·</span>
+              <span>For Practicing Artists</span>
             </p>
             <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
               Advanced Realism Masterclass

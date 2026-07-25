@@ -4,14 +4,19 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+
+const courseSubLinks = [
+  { href: "/courses#pro-program", label: "3-Month Advanced Program" },
+  { href: "/courses#realism-masterclass", label: "45-Day Realism Masterclass" },
+];
 
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#portfolio", label: "Portfolio" },
   { href: "#healed", label: "Healed Work" },
   { href: "#artist", label: "Artist" },
-  { href: "/courses", label: "Courses" },
+  { href: "/courses", label: "Courses", subLinks: courseSubLinks },
   { href: "#reviews", label: "Reviews" },
   { href: "#contact", label: "Contact" },
 ];
@@ -19,6 +24,7 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileCoursesOpen, setIsMobileCoursesOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
@@ -43,6 +49,11 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileCoursesOpen(false);
+  };
 
   return (
     <header
@@ -87,7 +98,10 @@ export default function Header() {
               className="flex items-center gap-8"
             >
               {navLinks.map((link, index) => (
-                <li key={link.href}>
+                <li
+                  key={link.href}
+                  className={link.subLinks ? "relative group" : undefined}
+                >
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -95,20 +109,53 @@ export default function Header() {
                   >
                     <Link
                       href={link.href}
-                      className={`text-sm font-medium transition-colors duration-300 relative group ${
+                      className={`text-sm font-medium transition-colors duration-300 relative group/link inline-flex items-center gap-1 ${
                         theme === "dark"
                           ? "text-white/70 hover:text-white"
                           : "text-black/70 hover:text-black"
                       }`}
                     >
                       {link.label}
+                      {link.subLinks && (
+                        <ChevronDown
+                          size={14}
+                          className="transition-transform duration-300 group-hover:rotate-180"
+                        />
+                      )}
                       <span
-                        className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${
+                        className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover/link:w-full ${
                           theme === "dark" ? "bg-white" : "bg-black"
                         }`}
                       />
                     </Link>
                   </motion.div>
+
+                  {/* Desktop dropdown */}
+                  {link.subLinks && (
+                    <div className="absolute left-0 top-full pt-4 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+                      <div
+                        className={`min-w-64 border backdrop-blur-md ${
+                          theme === "dark"
+                            ? "bg-black/95 border-white/10"
+                            : "bg-white/95 border-black/10"
+                        }`}
+                      >
+                        {link.subLinks.map((subLink) => (
+                          <Link
+                            key={subLink.href}
+                            href={subLink.href}
+                            className={`block px-5 py-3.5 text-sm font-medium transition-colors duration-300 ${
+                              theme === "dark"
+                                ? "text-white/70 hover:text-white hover:bg-white/10"
+                                : "text-black/70 hover:text-black hover:bg-black/5"
+                            }`}
+                          >
+                            {subLink.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </li>
               ))}
             </motion.ul>
@@ -147,7 +194,13 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                if (isMobileMenuOpen) {
+                  closeMobileMenu();
+                } else {
+                  setIsMobileMenuOpen(true);
+                }
+              }}
               className={`p-2 transition-colors duration-300 ${
                 theme === "dark" ? "text-white" : "text-black"
               }`}
@@ -181,17 +234,72 @@ export default function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.05 * index }}
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block text-lg font-medium transition-colors duration-300 ${
-                      theme === "dark"
-                        ? "text-white/80 hover:text-white"
-                        : "text-black/80 hover:text-black"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
+                  {link.subLinks ? (
+                    <>
+                      <button
+                        onClick={() =>
+                          setIsMobileCoursesOpen(!isMobileCoursesOpen)
+                        }
+                        className={`flex items-center gap-2 text-lg font-medium transition-colors duration-300 ${
+                          theme === "dark"
+                            ? "text-white/80 hover:text-white"
+                            : "text-black/80 hover:text-black"
+                        }`}
+                        aria-expanded={isMobileCoursesOpen}
+                      >
+                        {link.label}
+                        <ChevronDown
+                          size={18}
+                          className={`transition-transform duration-300 ${
+                            isMobileCoursesOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isMobileCoursesOpen && (
+                          <motion.ul
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className={`overflow-hidden mt-3 ml-4 space-y-3 border-l pl-4 ${
+                              theme === "dark"
+                                ? "border-white/15"
+                                : "border-black/15"
+                            }`}
+                          >
+                            {link.subLinks.map((subLink) => (
+                              <li key={subLink.href}>
+                                <Link
+                                  href={subLink.href}
+                                  onClick={closeMobileMenu}
+                                  className={`block text-base font-medium transition-colors duration-300 ${
+                                    theme === "dark"
+                                      ? "text-white/70 hover:text-white"
+                                      : "text-black/70 hover:text-black"
+                                  }`}
+                                >
+                                  {subLink.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={closeMobileMenu}
+                      className={`block text-lg font-medium transition-colors duration-300 ${
+                        theme === "dark"
+                          ? "text-white/80 hover:text-white"
+                          : "text-black/80 hover:text-black"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </motion.li>
               ))}
             </ul>
@@ -201,4 +309,3 @@ export default function Header() {
     </header>
   );
 }
-

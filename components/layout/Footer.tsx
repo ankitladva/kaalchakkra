@@ -119,7 +119,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Sumit Tank. All rights reserved.
             </p>
             <p className="text-foreground/40 text-sm">
-              Kaal Chakkra Tattoo Studio, Anand
+              Kaal Chakkra Tattoo Studio, India
             </p>
           </div>
         </div>

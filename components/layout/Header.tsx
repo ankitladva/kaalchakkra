@@ -5,10 +5,82 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import { getWhatsAppLink } from "@/lib/utils";
 
 const courseSubLinks = [
   { href: "/courses#pro-program", label: "3-Month Advanced Program" },
   { href: "/courses#realism-masterclass", label: "45-Day Realism Masterclass" },
+];
+
+const serviceGroups = [
+  {
+    heading: "Realism & Portraits",
+    items: [
+      "Black & Grey Realism",
+      "Color Realism",
+      "Micro Realism Tattoos",
+      "Portrait Tattoos",
+      "Animal & Wildlife Tattoos",
+    ],
+  },
+  {
+    heading: "Cultural & Traditional",
+    items: [
+      "Japanese Tattoos (Irezumi)",
+      "Indian Mythology Tattoos",
+      "Spiritual & Religious Tattoos",
+      "Traditional Tattoos",
+      "Neo-Traditional Tattoos",
+      "Tribal Tattoos",
+      "Watercolor Tattoos",
+    ],
+  },
+  {
+    heading: "Fine Line & Pattern",
+    items: [
+      "Fine Line Tattoos",
+      "Minimalist Tattoos",
+      "Geometric Tattoos",
+      "Mandala Tattoos",
+      "Dotwork Tattoos",
+      "Floral Tattoos",
+      "Lettering & Script Tattoos",
+      "Calligraphy Tattoos",
+    ],
+  },
+  {
+    heading: "Sleeves & Placement",
+    items: [
+      "Sleeve Tattoos",
+      "Half Sleeve Tattoos",
+      "Full Sleeve Tattoos",
+      "Chest Tattoos",
+      "Back Piece Tattoos",
+      "Leg Sleeve Tattoos",
+    ],
+  },
+  {
+    heading: "Cover-Ups & Fixes",
+    items: [
+      "Cover-Up Tattoos",
+      "Tattoo Rework & Restoration",
+      "Scar Cover Tattoos",
+      "Tattoo Touch-Up",
+    ],
+  },
+  {
+    heading: "Custom & Care",
+    items: [
+      "Custom Tattoo Design",
+      "Custom Sketch Tattoos",
+      "Couple Tattoos",
+      "Matching Tattoos",
+      "Memorial Tattoos",
+      "Tattoo Consultation",
+      "Tattoo Design Service",
+      "Tattoo Aftercare Guidance",
+    ],
+  },
 ];
 
 const navLinks = [
@@ -16,15 +88,23 @@ const navLinks = [
   { href: "#portfolio", label: "Portfolio" },
   { href: "#healed", label: "Healed Work" },
   { href: "#artist", label: "Artist" },
+  { href: "#services", label: "Services", isServices: true },
   { href: "/courses", label: "Courses", subLinks: courseSubLinks },
   { href: "#reviews", label: "Reviews" },
   { href: "#contact", label: "Contact" },
 ];
 
+function serviceWhatsAppLink(service: string) {
+  return getWhatsAppLink(
+    `Hi, I'm interested in ${service} at Kaal Chakkra Tattoo Studio. Can we discuss?`
+  );
+}
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileCoursesOpen, setIsMobileCoursesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
@@ -53,7 +133,18 @@ export default function Header() {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     setIsMobileCoursesOpen(false);
+    setIsMobileServicesOpen(false);
   };
+
+  const dropdownPanelClass =
+    theme === "dark"
+      ? "bg-black/95 border-white/10"
+      : "bg-white/95 border-black/10";
+
+  const dropdownItemClass =
+    theme === "dark"
+      ? "text-white/70 hover:text-white hover:bg-white/10"
+      : "text-black/70 hover:text-black hover:bg-black/5";
 
   return (
     <header
@@ -95,63 +186,117 @@ export default function Header() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex items-center gap-8"
+              className="flex items-center gap-7"
             >
               {navLinks.map((link, index) => (
                 <li
                   key={link.href}
-                  className={link.subLinks ? "relative group" : undefined}
+                  className={
+                    link.subLinks || link.isServices
+                      ? "relative group"
+                      : undefined
+                  }
                 >
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 * index }}
                   >
-                    <Link
-                      href={link.href}
-                      className={`text-sm font-medium transition-colors duration-300 relative group/link inline-flex items-center gap-1 ${
-                        theme === "dark"
-                          ? "text-white/70 hover:text-white"
-                          : "text-black/70 hover:text-black"
-                      }`}
-                    >
-                      {link.label}
-                      {link.subLinks && (
+                    {link.isServices ? (
+                      <button
+                        className={`text-sm font-medium transition-colors duration-300 relative group/link inline-flex items-center gap-1 cursor-default ${
+                          theme === "dark"
+                            ? "text-white/70 hover:text-white"
+                            : "text-black/70 hover:text-black"
+                        }`}
+                      >
+                        {link.label}
                         <ChevronDown
                           size={14}
                           className="transition-transform duration-300 group-hover:rotate-180"
                         />
-                      )}
-                      <span
-                        className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover/link:w-full ${
-                          theme === "dark" ? "bg-white" : "bg-black"
+                        <span
+                          className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover/link:w-full ${
+                            theme === "dark" ? "bg-white" : "bg-black"
+                          }`}
+                        />
+                      </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className={`text-sm font-medium transition-colors duration-300 relative group/link inline-flex items-center gap-1 ${
+                          theme === "dark"
+                            ? "text-white/70 hover:text-white"
+                            : "text-black/70 hover:text-black"
                         }`}
-                      />
-                    </Link>
+                      >
+                        {link.label}
+                        {link.subLinks && (
+                          <ChevronDown
+                            size={14}
+                            className="transition-transform duration-300 group-hover:rotate-180"
+                          />
+                        )}
+                        <span
+                          className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover/link:w-full ${
+                            theme === "dark" ? "bg-white" : "bg-black"
+                          }`}
+                        />
+                      </Link>
+                    )}
                   </motion.div>
 
-                  {/* Desktop dropdown */}
+                  {/* Courses dropdown */}
                   {link.subLinks && (
                     <div className="absolute left-0 top-full pt-4 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
                       <div
-                        className={`min-w-64 border backdrop-blur-md ${
-                          theme === "dark"
-                            ? "bg-black/95 border-white/10"
-                            : "bg-white/95 border-black/10"
-                        }`}
+                        className={`min-w-64 border backdrop-blur-md ${dropdownPanelClass}`}
                       >
                         {link.subLinks.map((subLink) => (
                           <Link
                             key={subLink.href}
                             href={subLink.href}
-                            className={`block px-5 py-3.5 text-sm font-medium transition-colors duration-300 ${
-                              theme === "dark"
-                                ? "text-white/70 hover:text-white hover:bg-white/10"
-                                : "text-black/70 hover:text-black hover:bg-black/5"
-                            }`}
+                            className={`block px-5 py-3.5 text-sm font-medium transition-colors duration-300 ${dropdownItemClass}`}
                           >
                             {subLink.label}
                           </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Services mega dropdown */}
+                  {link.isServices && (
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+                      <div
+                        className={`w-[620px] max-h-[70vh] overflow-y-auto no-scrollbar border backdrop-blur-md p-7 grid grid-cols-2 gap-x-8 gap-y-7 ${dropdownPanelClass}`}
+                      >
+                        {serviceGroups.map((group) => (
+                          <div key={group.heading}>
+                            <p
+                              className={`text-xs font-semibold uppercase tracking-[0.15em] mb-3 ${
+                                theme === "dark"
+                                  ? "text-white/40"
+                                  : "text-black/40"
+                              }`}
+                            >
+                              {group.heading}
+                            </p>
+                            <ul className="space-y-1">
+                              {group.items.map((service) => (
+                                <li key={service}>
+                                  <a
+                                    href={serviceWhatsAppLink(service)}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`block px-2 py-1.5 -mx-2 text-sm font-medium transition-colors duration-300 ${dropdownItemClass}`}
+                                  >
+                                    {service}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -220,7 +365,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className={`lg:hidden backdrop-blur-md border-b transition-colors duration-500 ${
+            className={`lg:hidden backdrop-blur-md border-b transition-colors duration-500 max-h-[calc(100vh-5rem)] overflow-y-auto ${
               theme === "dark"
                 ? "bg-black/95 border-white/10"
                 : "bg-white/95 border-black/10"
@@ -234,7 +379,79 @@ export default function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.05 * index }}
                 >
-                  {link.subLinks ? (
+                  {link.isServices ? (
+                    <>
+                      <button
+                        onClick={() =>
+                          setIsMobileServicesOpen(!isMobileServicesOpen)
+                        }
+                        className={`flex items-center gap-2 text-lg font-medium transition-colors duration-300 ${
+                          theme === "dark"
+                            ? "text-white/80 hover:text-white"
+                            : "text-black/80 hover:text-black"
+                        }`}
+                        aria-expanded={isMobileServicesOpen}
+                      >
+                        {link.label}
+                        <ChevronDown
+                          size={18}
+                          className={`transition-transform duration-300 ${
+                            isMobileServicesOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isMobileServicesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className={`overflow-hidden mt-3 ml-4 border-l pl-4 ${
+                              theme === "dark"
+                                ? "border-white/15"
+                                : "border-black/15"
+                            }`}
+                          >
+                            <div className="space-y-5 py-1">
+                              {serviceGroups.map((group) => (
+                                <div key={group.heading}>
+                                  <p
+                                    className={`text-xs font-semibold uppercase tracking-[0.15em] mb-2 ${
+                                      theme === "dark"
+                                        ? "text-white/40"
+                                        : "text-black/40"
+                                    }`}
+                                  >
+                                    {group.heading}
+                                  </p>
+                                  <ul className="space-y-2">
+                                    {group.items.map((service) => (
+                                      <li key={service}>
+                                        <a
+                                          href={serviceWhatsAppLink(service)}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          onClick={closeMobileMenu}
+                                          className={`block text-base font-medium transition-colors duration-300 ${
+                                            theme === "dark"
+                                              ? "text-white/70 hover:text-white"
+                                              : "text-black/70 hover:text-black"
+                                          }`}
+                                        >
+                                          {service}
+                                        </a>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : link.subLinks ? (
                     <>
                       <button
                         onClick={() =>
